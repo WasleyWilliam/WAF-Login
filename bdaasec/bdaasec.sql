@@ -30,7 +30,7 @@ convcli varchar(50)
 );
 
 insert into tbclientes(nomecli,endcli,fonecli,emailcli)
-values('Wasley William','Estrela Dalva,56' ,'31992174660','fabio@gmail.com');
+values('Wasley William','Estrela Dalva,66' ,'31992174660','fabio@gmail.com');
 use dbaasec
 create table tbconsultas(
 os int primary key auto_increment,
