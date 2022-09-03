@@ -5,11 +5,18 @@
  */
 package br.com.waflogin.telas;
 
+import java.sql.*;
+import br.com.waflogin.dal.ModuloConexao;
+
 /**
  *
  * @author wasle
  */
 public class TelaLogin extends javax.swing.JFrame {
+Connection conexao = null;
+PreparedStatement
+
+
 
     /**
      * Creates new form TelaLogin

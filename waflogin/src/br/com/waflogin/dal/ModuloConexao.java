@@ -6,21 +6,30 @@
 package br.com.waflogin.dal;
 
 import java.sql.*;
+
 /**
  *
  * @author wasle
  */
 public class ModuloConexao {
     //Método Responsável por estabelecer a conexão com o banco
-    
-    public static Connection conector(){
+
+    public static Connection conector() {
         java.sql.Connection conexao = null;
         // A linha Abaixo Chama o Drive. 
         String driver = "com.mysql.jdbc.Driver";
         //Armazenando informações referente ao banco!
-        
+        String url = "jdbc:mysql://localhost:3306/dbaasec";
+        String user = "root";
+        String password = "Ww241287*";
+        // Estabelecendo a conexão com o Banco
+        try {
+            class.forName(diver);
+            conexao = DriverManager.getConnection(url,user,password);
+            return conexao;
+        } catch (Exception e) {
+            return null
+        }
     }
-    
-    
-    
+
 }
