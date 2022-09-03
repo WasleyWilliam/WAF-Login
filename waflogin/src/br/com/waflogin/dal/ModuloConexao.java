@@ -29,7 +29,7 @@ public class ModuloConexao {
             return conexao;
         } catch (Exception e) {
             System.out.println(e);
-            return null
+            return null;
         }
     }
 
