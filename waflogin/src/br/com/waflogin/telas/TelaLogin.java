@@ -14,7 +14,8 @@ import br.com.waflogin.dal.ModuloConexao;
  */
 public class TelaLogin extends javax.swing.JFrame {
 Connection conexao = null;
-PreparedStatement
+PreparedStatement pst = null;
+ResultSet  rs = null; 
 
 
 
@@ -23,8 +24,10 @@ PreparedStatement
      */
     public TelaLogin() {
         initComponents();
+        conexao = ModuloConexao.conector();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
