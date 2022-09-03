@@ -17,17 +17,18 @@ public class ModuloConexao {
     public static Connection conector() {
         java.sql.Connection conexao = null;
         // A linha Abaixo Chama o Drive. 
-        String driver = "com.mysql.jdbc.Driver";
+        String driver = "com.mysql.cj.jdbc.Driver";
         //Armazenando informações referente ao banco!
         String url = "jdbc:mysql://localhost:3306/dbaasec";
         String user = "root";
         String password = "Ww241287*";
         // Estabelecendo a conexão com o Banco
         try {
-            class.forName(diver);
+            Class.forName(driver);
             conexao = DriverManager.getConnection(url,user,password);
             return conexao;
         } catch (Exception e) {
+            System.out.println(e);
             return null
         }
     }
