@@ -17,7 +17,7 @@ public class ModuloConexao {
         java.sql.Connection conexao = null;
         // A linha Abaixo Chama o Drive. 
         String driver = "com.mysql.jdbc.Driver";
-        //Armazenando informações referente ao banco
+        //Armazenando informações referente ao banco!
         
     }
     
