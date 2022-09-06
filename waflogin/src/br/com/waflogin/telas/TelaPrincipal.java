@@ -106,9 +106,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(MenCli);
 
         MenRel.setText("Relatório");
+        MenRel.setEnabled(false);
 
         MenRelCons.setText("Consultas");
-        MenRelCons.setEnabled(false);
         MenRel.add(MenRelCons);
 
         Menu.add(MenRel);
@@ -222,10 +222,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenCli;
     private javax.swing.JMenu MenOpc;
     private javax.swing.JMenuItem MenOpcSai;
-    private javax.swing.JMenu MenRel;
+    public static javax.swing.JMenu MenRel;
     public static javax.swing.JMenuItem MenRelCons;
     private javax.swing.JMenuBar Menu;
-    private javax.swing.JLabel lblData;
-    private javax.swing.JLabel lblUsuario;
+    public static javax.swing.JLabel lblData;
+    public static javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }
