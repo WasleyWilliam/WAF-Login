@@ -1,0 +1,14 @@
+//Código abaixo seleciona um banco de dados específico
+use dbaasec  
+
+//Código abaixo Exibe  propriedades de uma tabela (Colunas)
+describe tbusuarios;
+
+//Código abaixo exibe os usuários cadastrados em uma tabela
+select* from tbusuarios;
+
+//O comando Abaixo vai criar mais um campo em uma tabela 
+alter table tbusuarios add column perfil varchar(20) not null; 
+
+//O comando Abaixo vai remover um campo em uma tabela 
+alter table tbusuarios drop column perfil varchar(20) not null; 
