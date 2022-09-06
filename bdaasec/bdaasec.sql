@@ -7,7 +7,7 @@ use dbaasec
 --	a linha abaixo insere dados na tabela (CRUD)
 --	create -> insert
 insert into tbusuarios(iduser,usuario,contato,login,senha)
-values(3,'Ariadne Arci','31992174660','fabio','123456');
+values(4,'Ariadne Arci','31992174660','Ari','123456');
 -- a linha abaixo exibe os dados da tabela (CRUD)
 --	read -> select
 -- a linha abaixo modifica dados na tabela (CRUD)
@@ -49,7 +49,7 @@ foreign key(idcli) references tbclientes(idcli)
 describe tbconsultas
 
 insert into tbconsultas (nomemed,dtconsulta,hrconsulta,convenio,localcons,obs,idcli)
-values ('Carlos','25/08/2022','08:00','unimed','aymores, 750','',1)
+values ('Ariadne','25/08/2022','08:00','unimed','aymores, 750','',1)
 
 select * from tbconsultas;
 
@@ -62,7 +62,7 @@ inner join tbclientes as C
 on(O.idcli=c.idcli)
 
 
-select * from tbusuarios;
+tbclientestbconsultastbconsultastbclientesselect * from tbusuarios;
 select * from tbusuarios where login='admin' and senha='admin'
 
 
