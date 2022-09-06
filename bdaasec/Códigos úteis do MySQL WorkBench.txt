@@ -12,3 +12,6 @@ alter table tbusuarios add column perfil varchar(20) not null;
 
 //O comando Abaixo vai remover um campo em uma tabela 
 alter table tbusuarios drop column perfil varchar(20) not null; 
+
+//A linha abaixo ira incluir um no campo perfil um administrador da tabela
+update tbusuarios set perfil = 'admin' where iduser=2;
