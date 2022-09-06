@@ -28,13 +28,16 @@ public class TelaLogin extends javax.swing.JFrame {
             //conteúdo das variáveis
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtUsuario.getText());
-            pst.setString(2, txtSenha.getText());
+            String captura = new String(txtSenha.getPassword());
+            pst.setString(2, captura);
             // A linha abaixo executa a query
             rs = pst.executeQuery();
             //Se Existir o Usuário e Senha correspondente
             if (rs.next()) {
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.setVisible(true);
+                this.dispose();
+                conexao.close();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou Senha inválido");
             }
