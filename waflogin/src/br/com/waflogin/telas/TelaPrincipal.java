@@ -100,6 +100,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenCli.add(MenCadCons);
 
         MenCadUso.setText("Usuários");
+        MenCadUso.setEnabled(false);
         MenCli.add(MenCadUso);
 
         Menu.add(MenCli);
@@ -107,6 +108,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenRel.setText("Relatório");
 
         MenRelCons.setText("Consultas");
+        MenRelCons.setEnabled(false);
         MenRel.add(MenRelCons);
 
         Menu.add(MenRel);
@@ -216,12 +218,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenAjuSob;
     private javax.swing.JMenuItem MenCadCli;
     private javax.swing.JMenuItem MenCadCons;
-    private javax.swing.JMenuItem MenCadUso;
+    public static javax.swing.JMenuItem MenCadUso;
     private javax.swing.JMenu MenCli;
     private javax.swing.JMenu MenOpc;
     private javax.swing.JMenuItem MenOpcSai;
     private javax.swing.JMenu MenRel;
-    private javax.swing.JMenuItem MenRelCons;
+    public static javax.swing.JMenuItem MenRelCons;
     private javax.swing.JMenuBar Menu;
     private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblUsuario;
