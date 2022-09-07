@@ -31,20 +31,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Desktop = new javax.swing.JDesktopPane();
+        desktop = new javax.swing.JDesktopPane();
         lblData = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         MenCli = new javax.swing.JMenu();
-        MenCadCli = new javax.swing.JMenuItem();
-        MenCadCons = new javax.swing.JMenuItem();
-        MenCadUso = new javax.swing.JMenuItem();
-        MenRel = new javax.swing.JMenu();
-        MenRelCons = new javax.swing.JMenuItem();
-        MenAju = new javax.swing.JMenu();
-        MenAjuSob = new javax.swing.JMenuItem();
-        MenOpc = new javax.swing.JMenu();
-        MenOpcSai = new javax.swing.JMenuItem();
+        menCadCli = new javax.swing.JMenuItem();
+        menCadCons = new javax.swing.JMenuItem();
+        menCadUso = new javax.swing.JMenuItem();
+        menRel = new javax.swing.JMenu();
+        menRelCons = new javax.swing.JMenuItem();
+        menAju = new javax.swing.JMenu();
+        menAjuSob = new javax.swing.JMenuItem();
+        menOpc = new javax.swing.JMenu();
+        menOpcSai = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WAF LOGIN");
@@ -54,8 +54,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        Desktop.setBackground(new java.awt.Color(153, 153, 153));
-        Desktop.setForeground(new java.awt.Color(204, 204, 204));
+        desktop.setBackground(new java.awt.Color(153, 153, 153));
+        desktop.setForeground(new java.awt.Color(204, 204, 204));
 
         lblData.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblData.setText("Data");
@@ -63,23 +63,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblUsuario.setText("Usuário");
 
-        Desktop.setLayer(lblData, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Desktop.setLayer(lblUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktop.setLayer(lblData, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktop.setLayer(lblUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
-        Desktop.setLayout(DesktopLayout);
-        DesktopLayout.setHorizontalGroup(
-            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DesktopLayout.createSequentialGroup()
+        javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
+        desktop.setLayout(desktopLayout);
+        desktopLayout.setHorizontalGroup(
+            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(desktopLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(1147, Short.MAX_VALUE))
         );
-        DesktopLayout.setVerticalGroup(
-            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DesktopLayout.createSequentialGroup()
+        desktopLayout.setVerticalGroup(
+            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(desktopLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addComponent(lblUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -92,51 +92,51 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenCli.setText("Cadastro");
 
-        MenCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        MenCadCli.setText("Cliente");
-        MenCli.add(MenCadCli);
+        menCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        menCadCli.setText("Cliente");
+        MenCli.add(menCadCli);
 
-        MenCadCons.setText("Consultas");
-        MenCli.add(MenCadCons);
+        menCadCons.setText("Consultas");
+        MenCli.add(menCadCons);
 
-        MenCadUso.setText("Usuários");
-        MenCadUso.setEnabled(false);
-        MenCli.add(MenCadUso);
+        menCadUso.setText("Usuários");
+        menCadUso.setEnabled(false);
+        MenCli.add(menCadUso);
 
         Menu.add(MenCli);
 
-        MenRel.setText("Relatório");
-        MenRel.setEnabled(false);
+        menRel.setText("Relatório");
+        menRel.setEnabled(false);
 
-        MenRelCons.setText("Consultas");
-        MenRel.add(MenRelCons);
+        menRelCons.setText("Consultas");
+        menRel.add(menRelCons);
 
-        Menu.add(MenRel);
+        Menu.add(menRel);
 
-        MenAju.setText("Ajuda");
+        menAju.setText("Ajuda");
 
-        MenAjuSob.setText("Sobre");
-        MenAjuSob.addActionListener(new java.awt.event.ActionListener() {
+        menAjuSob.setText("Sobre");
+        menAjuSob.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenAjuSobActionPerformed(evt);
+                menAjuSobActionPerformed(evt);
             }
         });
-        MenAju.add(MenAjuSob);
+        menAju.add(menAjuSob);
 
-        Menu.add(MenAju);
+        Menu.add(menAju);
 
-        MenOpc.setText("Opções");
+        menOpc.setText("Opções");
 
-        MenOpcSai.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        MenOpcSai.setText("Sair");
-        MenOpcSai.addActionListener(new java.awt.event.ActionListener() {
+        menOpcSai.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        menOpcSai.setText("Sair");
+        menOpcSai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenOpcSaiActionPerformed(evt);
+                menOpcSaiActionPerformed(evt);
             }
         });
-        MenOpc.add(MenOpcSai);
+        menOpc.add(menOpcSai);
 
-        Menu.add(MenOpc);
+        Menu.add(menOpc);
 
         setJMenuBar(Menu);
 
@@ -144,11 +144,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Desktop)
+            .addComponent(desktop)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Desktop)
+            .addComponent(desktop)
         );
 
         pack();
@@ -163,19 +163,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowActivated
 
-    private void MenOpcSaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenOpcSaiActionPerformed
+    private void menOpcSaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menOpcSaiActionPerformed
         // O Código abaixo Exibe uma caixa de diálogo
         int sair = JOptionPane.showConfirmDialog(null, "Tem Certeza que deseja Sair?", "Atenção", JOptionPane.YES_NO_OPTION);
         if (sair == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
-    }//GEN-LAST:event_MenOpcSaiActionPerformed
+    }//GEN-LAST:event_menOpcSaiActionPerformed
 
-    private void MenAjuSobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenAjuSobActionPerformed
+    private void menAjuSobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menAjuSobActionPerformed
         // O Código abaixo Abre a Tela Sobre
         TelaSobre sobre = new TelaSobre();
         sobre.setVisible(true);
-    }//GEN-LAST:event_MenAjuSobActionPerformed
+    }//GEN-LAST:event_menAjuSobActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,19 +213,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane Desktop;
-    private javax.swing.JMenu MenAju;
-    private javax.swing.JMenuItem MenAjuSob;
-    private javax.swing.JMenuItem MenCadCli;
-    private javax.swing.JMenuItem MenCadCons;
-    public static javax.swing.JMenuItem MenCadUso;
     private javax.swing.JMenu MenCli;
-    private javax.swing.JMenu MenOpc;
-    private javax.swing.JMenuItem MenOpcSai;
-    public static javax.swing.JMenu MenRel;
-    public static javax.swing.JMenuItem MenRelCons;
     private javax.swing.JMenuBar Menu;
+    private javax.swing.JDesktopPane desktop;
     public static javax.swing.JLabel lblData;
     public static javax.swing.JLabel lblUsuario;
+    private javax.swing.JMenu menAju;
+    private javax.swing.JMenuItem menAjuSob;
+    private javax.swing.JMenuItem menCadCli;
+    private javax.swing.JMenuItem menCadCons;
+    public static javax.swing.JMenuItem menCadUso;
+    private javax.swing.JMenu menOpc;
+    private javax.swing.JMenuItem menOpcSai;
+    public static javax.swing.JMenu menRel;
+    public static javax.swing.JMenuItem menRelCons;
     // End of variables declaration//GEN-END:variables
 }
