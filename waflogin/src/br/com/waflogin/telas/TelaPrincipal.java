@@ -101,6 +101,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menCadUso.setText("Usuários");
         menCadUso.setEnabled(false);
+        menCadUso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menCadUsoActionPerformed(evt);
+            }
+        });
         MenCli.add(menCadUso);
 
         Menu.add(MenCli);
@@ -176,6 +181,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaSobre sobre = new TelaSobre();
         sobre.setVisible(true);
     }//GEN-LAST:event_menAjuSobActionPerformed
+
+    private void menCadUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadUsoActionPerformed
+        // As Linhas Abaixo vão abrir o Form TelaUsuário dentro do desktop Pane
+            TelaUsuario usuario = new TelaUsuario();
+            usuario.setVisible(true);
+            desktop.add(usuario);
+    }//GEN-LAST:event_menCadUsoActionPerformed
 
     /**
      * @param args the command line arguments
