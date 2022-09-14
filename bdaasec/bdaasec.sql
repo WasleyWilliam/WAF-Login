@@ -1,71 +1,20 @@
---	Comentários
---	a linha abaixo cria um banco de dados 	
-create database dbaasec;
---	a linha abaixo escolhe o banco de dados a ser utilizado
-use dbaasec
---	o comando abaixo descreve a tabela
---	a linha abaixo insere dados na tabela (CRUD)
---	create -> insert
-insert into tbusuarios(iduser,usuario,contato,login,senha)
-values(4,'Ariadne Arci','31992174660','Ari','123456');
--- a linha abaixo exibe os dados da tabela (CRUD)
---	read -> select
--- a linha abaixo modifica dados na tabela (CRUD)
--- update - > update
-update tbclientes set fonecli='31/34354425' where idcli=2;
--- a linha abaixo apaga um registro da tabela (CRUD)
--- delete ->
-delete from tbusuarios where iduser=3;
-select * from tbclientes;
-select * from tbusuarios;
+//Código abaixo seleciona um banco de dados específico
+use dbaasec  
 
-create table tbclientes2(
-idcli int primary key auto_increment, 
-nomecli varchar(50) not null, 
-cpfcli varchar(50),
-endcli varchar(100), 
-fonecli varchar(50) not null, 
-emailcli varchar(50),
-convcli varchar(50)
-);
+//Código abaixo Exibe  propriedades de uma tabela (Colunas)
+describe tbusuarios;
 
-insert into tbclientes(nomecli,endcli,fonecli,emailcli)
-values('Wasley William','Estrela Dalva,66' ,'31992174660','fabio@gmail.com');
-use dbaasec
-create table tbconsultas(
-os int primary key auto_increment,
-data_os timestamp default current_timestamp,
-nomemed varchar(100) not null, 
-dtconsulta varchar(11) not null,
-hrconsulta varchar(11) not null,
-convenio varchar(50),
-localcons varchar(150) not null,
-obs varchar(400), 
-idcli int not null,
-foreign key(idcli) references tbclientes(idcli)
+//Código abaixo exibe os usuários cadastrados em uma tabela
+select* from tbusuarios;
 
-);
+//O comando Abaixo vai criar mais um campo em uma tabela 
+alter table tbusuarios add column perfil varchar(20) not null; 
 
-describe tbconsultas
+//O comando Abaixo vai remover um campo em uma tabela 
+alter table tbusuarios drop column perfil varchar(20) not null; 
 
-insert into tbconsultas (nomemed,dtconsulta,hrconsulta,convenio,localcons,obs,idcli)
-values ('Ariadne','25/08/2022','08:00','unimed','aymores, 750','',1)
-
-select * from tbconsultas;
-
--- o código abaixo traz informações de duas tabelas
-select 
-O.os,nomemed,dtconsulta,hrconsulta,convenio,localcons,obs,
-C.nomecli,fonecli,emailcli
-from tbconsultas as O
-inner join tbclientes as C
-on(O.idcli=c.idcli)
-
-
-tbclientestbconsultastbconsultastbclientesselect * from tbusuarios;
-select * from tbusuarios where login='admin' and senha='admin'
-
-
+//A linha abaixo ira incluir um no campo perfil um administrador da tabela
+update tbusuarios set perfil = 'user' where iduser=4;
 
 
 
