@@ -19,42 +19,70 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     PreparedStatement pst = null;
     ResultSet rs = null;
 
-  
     public TelaUsuario() {
         initComponents();
         conexao = ModuloConexao.conector();
     }
-    private void consultar(){
+
+    // Método para consultar usuários junto ao Banco de Dados
+    private void consultar() {
         String sql = "select * from tbusuarios where iduser=?";
         try {
             pst = conexao.prepareStatement(sql);
-            pst.setString(1,txtUsuId.getText());
+            pst.setString(1, txtUsuId.getText());
             rs = pst.executeQuery();
             if (rs.next()) {
-               txtUsuNome.setText(rs.getString(2)); 
-               txtUsuTelefone.setText(rs.getString(3)); 
-               txtUsuLogin.setText(rs.getString(4));
-               txtUsuSenha.setText(rs.getString(5));
-               //A Linha abaixo se refere ao Combobox
-               cboUsuPerfil.setSelectedItem(rs.getString(6));
+                txtUsuNome.setText(rs.getString(2));
+                txtUsuTelefone.setText(rs.getString(3));
+                txtUsuLogin.setText(rs.getString(4));
+                txtUsuSenha.setText(rs.getString(5));
+                //A Linha abaixo se refere ao Combobox
+                cboUsuPerfil.setSelectedItem(rs.getString(6));
             } else {
-                JOptionPane.showMessageDialog(null,"Usuário não cadastrado");
-                txtUsuId.setText(null); 
-                txtUsuNome.setText(null); 
-                txtUsuTelefone.setText(null); 
-                txtUsuLogin.setText(null); 
-                txtUsuSenha.setText(null); 
+                JOptionPane.showMessageDialog(null, "Usuário não cadastrado");
+                txtUsuId.setText(null);
+                txtUsuNome.setText(null);
+                txtUsuTelefone.setText(null);
+                txtUsuLogin.setText(null);
+                txtUsuSenha.setText(null);
                 cboUsuPerfil.setSelectedItem(null);
-                
+
             }
-            
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null, e);
         }
-        
+
     }
 
-    
+    //Método para adicionar usuário junto ao Banco de Dados
+    private void adicionar() {
+        String sql = "insert into tbusuarios(iduser,usuario,contato,login,senha,perfil) values(?,?,?,?,?,?)";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtUsuId.getText());
+            pst.setString(2, txtUsuNome.getText());
+            pst.setString(3, txtUsuTelefone.getText());
+            pst.setString(4, txtUsuLogin.getText());
+            pst.setString(5, txtUsuSenha.getText());
+            pst.setString(6, (String) cboUsuPerfil.getSelectedItem());
+            // A linha abaixo atualiza a tabela usuarios com os dados do banco de dados
+            int adicionar = pst.executeUpdate();
+            if (adicionar > 0) {
+                JOptionPane.showMessageDialog(null, "Usuário Adicionado com Sucesso");
+                txtUsuId.setText(null);
+                txtUsuNome.setText(null);
+                txtUsuTelefone.setText(null);
+                txtUsuLogin.setText(null);
+                txtUsuSenha.setText(null);
+                cboUsuPerfil.setSelectedItem(null);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -104,9 +132,13 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         btnUsuCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/waflogin/icones/addUser.png"))); // NOI18N
         btnUsuCreate.setToolTipText("Adicionar");
-        btnUsuCreate.setActionCommand("");
         btnUsuCreate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUsuCreate.setPreferredSize(new java.awt.Dimension(80, 80));
+        btnUsuCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuCreateActionPerformed(evt);
+            }
+        });
 
         btnUsuDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/waflogin/icones/deleteUser.png"))); // NOI18N
         btnUsuDelete.setToolTipText("Excluir");
@@ -217,10 +249,14 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private void btnUsuReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuReadActionPerformed
         //chamando método consultar
         consultar();
-        
-        
-        
+
+
     }//GEN-LAST:event_btnUsuReadActionPerformed
+
+    private void btnUsuCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuCreateActionPerformed
+        // Chamando o Método Adicionar
+        adicionar();
+    }//GEN-LAST:event_btnUsuCreateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
