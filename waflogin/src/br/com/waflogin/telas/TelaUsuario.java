@@ -45,8 +45,6 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 txtUsuTelefone.setText(null);
                 txtUsuLogin.setText(null);
                 txtUsuSenha.setText(null);
-                cboUsuPerfil.setSelectedItem(null);
-
             }
 
         } catch (Exception e) {
@@ -68,7 +66,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             pst.setString(5, txtUsuSenha.getText());
             pst.setString(6, (String) cboUsuPerfil.getSelectedItem());
             // Validação dos campos obrigatóris
-            if (txtUsuId.getText().isEmpty()||txtUsuNome.getText().isEmpty()||txtUsuLogin.getText().isEmpty()||txtUsuSenha.getText().isEmpty()) {
+            if (txtUsuId.getText().isEmpty() || txtUsuNome.getText().isEmpty() || txtUsuLogin.getText().isEmpty() || txtUsuSenha.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha Todos os campos Obrigatórios");
             } else {
                 // A linha abaixo atualiza a tabela usuarios com os dados do banco de dados
@@ -80,13 +78,47 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                     txtUsuTelefone.setText(null);
                     txtUsuLogin.setText(null);
                     txtUsuSenha.setText(null);
-                    cboUsuPerfil.setSelectedItem(null);
+
                 }
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
+    }
+
+    //Criando o Método Update
+    private void alterar() {
+        String sql = "update tbusuarios set usuario=?,contato=?,login=?,senha=?,perfil=? where iduser=?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            
+            pst.setString(1, txtUsuNome.getText());
+            pst.setString(2, txtUsuTelefone.getText());
+            pst.setString(3, txtUsuLogin.getText());
+            pst.setString(4, txtUsuSenha.getText());
+            pst.setString(5, (String) cboUsuPerfil.getSelectedItem());
+            pst.setString(6, txtUsuId.getText());
+            
+             if (txtUsuId.getText().isEmpty() || txtUsuNome.getText().isEmpty() || txtUsuLogin.getText().isEmpty() || txtUsuSenha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha Todos os campos Obrigatórios");
+            } else {
+                // A linha abaixo atualiza a tabela usuarios com os dados do banco de dados
+                int adicionar = pst.executeUpdate();
+                if (adicionar > 0) {
+                    JOptionPane.showMessageDialog(null, "Dados do usuário "+ txtUsuNome.getText()+" editado com sucesso");
+                    txtUsuId.setText(null);
+                    txtUsuNome.setText(null);
+                    txtUsuTelefone.setText(null);
+                    txtUsuLogin.setText(null);
+                    txtUsuSenha.setText(null);
+
+                }
+            }
+            
+        } catch (Exception e) {
+              JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -166,6 +198,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         btnUsuUpdate.setToolTipText("Editar");
         btnUsuUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUsuUpdate.setPreferredSize(new java.awt.Dimension(91, 91));
+        btnUsuUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuUpdateActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("*Campos Obrigatórios");
@@ -270,6 +307,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         // Chamando o Método Adicionar
         adicionar();
     }//GEN-LAST:event_btnUsuCreateActionPerformed
+
+    private void btnUsuUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuUpdateActionPerformed
+            // CHAMANDO O MÉTODO ALTERAR
+            alterar();
+    }//GEN-LAST:event_btnUsuUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
