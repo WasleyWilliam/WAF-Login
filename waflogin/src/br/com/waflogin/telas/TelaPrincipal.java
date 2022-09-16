@@ -95,6 +95,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         menCadCli.setText("Cliente");
+        menCadCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menCadCliActionPerformed(evt);
+            }
+        });
         MenCli.add(menCadCli);
 
         menCadCons.setText("Consultas");
@@ -190,6 +195,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             desktop.add(usuario);
     }//GEN-LAST:event_menCadUsoActionPerformed
 
+    private void menCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadCliActionPerformed
+        // O comando abaixo chamará a tela cliente
+        TelaCliente cliente = new TelaCliente();
+        cliente.setVisible(true);
+        desktop.add(cliente);
+    }//GEN-LAST:event_menCadCliActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -218,10 +230,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPrincipal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaPrincipal().setVisible(true);
         });
     }
 
